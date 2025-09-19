@@ -9,3 +9,9 @@ h1 { margin-bottom: 16px; }
 .card { border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
 
 pre { white-space: pre-wrap; word-break: break-word; }
+
+#clock { font-size: 48px; font-weight: 700; }
+
+#add-note { display: flex; gap: 8px; margin-bottom: 8px; }
+
+#add-note input { flex: 1; }
