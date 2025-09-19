@@ -7,3 +7,5 @@ h1 { margin-bottom: 16px; }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: var(--gap); }
 
 .card { border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+
+pre { white-space: pre-wrap; word-break: break-word; }
