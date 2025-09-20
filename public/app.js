@@ -8,3 +8,4 @@ function tickClock() {
     const d = new Date(); //find current date
     $('#clock').textContent = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // find local time and return in proper format
   }
+  setInterval(tickClock, 1000); tickClock(); //call function every second
