@@ -1,5 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,3 +16,4 @@ app.get('/version', (req, res) => res.json({ sha: GIT_SHA }));
 const __filename = fileURLToPath(import.meta.url); // full path to current file
 const __dirname  = path.dirname(__filename); // folder path (no filename)
 app.use(express.static(path.join(__dirname, 'public'))); //joins the current folder (__dirname) with public/
+
