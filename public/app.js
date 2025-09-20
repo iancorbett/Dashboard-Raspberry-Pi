@@ -30,4 +30,18 @@ function tickClock() {
     }
   }
   loadMeta();
+
+  async function loadWeather() {
+    const lat = localStorage.getItem('lat'); //lataitude
+    const lon = localStorage.getItem('lon'); //longitude
+    const qs = lat && lon ? `?lat=${lat}&lon=${lon}` : ''; //querey string, at lat and lon to the request
+    const w = await fetch('/api/weather' + qs).then(r=>r.json()); //call to weather api
+    const c = w.current_units || {}; //units, celsius, fahrenheit mph etc
+    const cur = w.current || {}; //current measurements, temp, wind etc
+    $('#weather').textContent =
+      `Temp: ${cur.temperature_2m}${c.temperature_2m || '°F'}\n` +
+      `Feels: ${cur.apparent_temperature}${c.apparent_temperature || '°F'}\n` +
+      `Wind: ${cur.wind_speed_10m}${c.wind_speed_10m || 'mph'}`;
+  }
+  loadWeather();
   
