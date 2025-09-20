@@ -9,3 +9,12 @@ function tickClock() {
     $('#clock').textContent = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // find local time and return in proper format
   }
   setInterval(tickClock, 1000); tickClock(); //call function every second
+
+  async function loadMeta() { //marks the function as async, so you can use await inside it
+    const [v,h] = await Promise.all([ //runs multiple async tasks at the same time
+      fetch('/version').then(r=>r.json()),
+      fetch('/health').then(r=>r.json())
+    ]);
+    $('#meta').textContent = JSON.stringify({ version: v, health: h }, null, 2);
+  }
+  loadMeta();
