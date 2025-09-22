@@ -12,6 +12,8 @@ const DASH_PIN = process.env.DASH_PIN || '';
 
 app.use(express.json());
 
+app.use((req, _res, next) => { console.log(req.method, req.url); next(); });
+
 app.get('/health', (req, res) => res.json({ status: 'ok', uptime: process.uptime() }));
 app.get('/version', (req, res) => res.json({ sha: GIT_SHA }));
 
