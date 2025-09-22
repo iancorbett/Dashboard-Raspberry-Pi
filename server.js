@@ -3,6 +3,7 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { getWeather } from './lib/weather.js';
+import { getVerse } from './lib/verse.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
