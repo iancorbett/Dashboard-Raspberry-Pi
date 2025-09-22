@@ -46,11 +46,11 @@ function tickClock() {
   loadWeather();
 
   async function loadVerse() {
-    const v = await fetch('/api/verse').then(r=>r.json());
-    const out = v && v.verse && v.verse.details
-      ? `${v.verse.details.text}\n— ${v.verse.details.reference}`
+    const v = await fetch('/api/verse').then(r=>r.json()); //make fetch call to api
+    const out = v && v.verse && v.verse.details //check if it hs everything thats needed
+      ? `${v.verse.details.text}\n— ${v.verse.details.reference}` //if it does print text then reference on a new line
       : JSON.stringify(v, null, 2);
-    $('#verse').textContent = out;
+    $('#verse').textContent = out; //dynamically change text content to whatever was etche from api
   }
   loadVerse();
   
