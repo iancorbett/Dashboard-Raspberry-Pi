@@ -44,4 +44,13 @@ function tickClock() {
       `Wind: ${cur.wind_speed_10m}${c.wind_speed_10m || 'mph'}`;
   }
   loadWeather();
+
+  async function loadVerse() {
+    const v = await fetch('/api/verse').then(r=>r.json());
+    const out = v && v.verse && v.verse.details
+      ? `${v.verse.details.text}\n— ${v.verse.details.reference}`
+      : JSON.stringify(v, null, 2);
+    $('#verse').textContent = out;
+  }
+  loadVerse();
   

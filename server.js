@@ -28,7 +28,15 @@ app.get('/api/weather', async (req, res) => {
       res.status(500).json({ error: 'weather_failed', message: String(e) });
     }
   });
-  
+
+  app.get('/api/verse', async (_req, res) => {
+    try {
+      const data = await getVerse();
+      res.json(data);
+    } catch (e) {
+      res.status(500).json({ error: 'verse_failed', message: String(e) });
+    }
+  });
 
 
 app.get('*', (_req, res) => {
