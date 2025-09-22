@@ -53,4 +53,10 @@ function tickClock() {
     $('#verse').textContent = out; //dynamically change text content to whatever was etche from api
   }
   loadVerse();
+
+  async function loadSystem() {
+    const s = await fetch('/api/system').then(r=>r.json()); //make fetch call to api
+    $('#system').textContent = JSON.stringify(s, null, 2);//dynamically change text content
+  }
+  loadSystem();
   
