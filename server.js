@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import { getWeather } from './lib/weather.js';
 import { getVerse } from './lib/verse.js';
 import { getSystem } from './lib/system.js';
+import { listNotes, addNote, deleteNote } from './lib/notes.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -43,6 +44,13 @@ app.get('/api/weather', async (req, res) => {
   app.get('/api/system', (_req, res) => {
     res.json(getSystem());
   });
+
+  function requirePin(req, res, next) {
+    if (!DASH_PIN) return next();
+    const pin = req.header('x-dash-pin');
+    if (pin === DASH_PIN) return next();
+    return res.status(401).json({ error: 'PIN required' });
+  }
 
 const __filename = fileURLToPath(import.meta.url); // full path to current file
 const __dirname  = path.dirname(__filename); // folder path (no filename)
