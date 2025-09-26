@@ -52,6 +52,10 @@ app.get('/api/weather', async (req, res) => {
     return res.status(401).json({ error: 'PIN required' });
   }
 
+  app.get('/api/notes', requirePin, (_req, res) => {
+    res.json({ notes: listNotes() });
+  });
+
 const __filename = fileURLToPath(import.meta.url); // full path to current file
 const __dirname  = path.dirname(__filename); // folder path (no filename)
 app.use(express.static(path.join(__dirname, 'public'))); //joins the current folder (__dirname) with public/
