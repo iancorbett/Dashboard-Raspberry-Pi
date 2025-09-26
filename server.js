@@ -63,6 +63,11 @@ app.get('/api/weather', async (req, res) => {
     res.json({ ok: true, note });
   });
 
+  app.delete('/api/notes/:id', requirePin, (req, res) => {
+    const ok = deleteNote(req.params.id);
+    res.json({ ok });
+  });
+
 const __filename = fileURLToPath(import.meta.url); // full path to current file
 const __dirname  = path.dirname(__filename); // folder path (no filename)
 app.use(express.static(path.join(__dirname, 'public'))); //joins the current folder (__dirname) with public/
