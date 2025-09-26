@@ -11,6 +11,8 @@ Runs on a Raspberry Pi (or any machine with Node installed) and displays:
 
 ---
 
+<img width="1724" height="772" alt="Screenshot 2025-09-25 at 11 58 55 PM" src="https://github.com/user-attachments/assets/53ba2beb-6382-4bf4-a8dc-948f27ec3298" />
+
 ##  Features
 
 - **Local Network Access** → view dashboard from your phone/laptop if on the same Wi-Fi
