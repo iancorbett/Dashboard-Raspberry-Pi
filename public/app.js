@@ -76,4 +76,17 @@ function tickClock() {
       });
     });
   }
-  
+  loadNotes();
+
+$('#add-note').addEventListener('submit', async e => {
+  e.preventDefault();
+  const text = $('#note-text').value.trim();
+  if (!text) return;
+  await fetch('/api/notes', {//use post req this time as we are adding a note as opposed to fetching existing notes
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...hdr() },
+    body: JSON.stringify({ text })
+  });
+  $('#note-text').value = '';
+  loadNotes();
+});
