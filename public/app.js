@@ -61,4 +61,19 @@ function tickClock() {
   loadSystem();
 
   pinInput.addEventListener('change', () => { PIN = pinInput.value.trim(); loadNotes(); }); 
+
+  async function loadNotes() {
+    const res = await fetch('/api/notes', { headers: hdr() }); //use fetch to get notes, using async function
+    if (!res.ok) { $('#notes').innerHTML = `<li>Locked (enter PIN)</li>`; return; } //locked if theres not a susuccessful res
+    const { notes } = await res.json();
+    $('#notes').innerHTML = notes.map(n => //map through notes and create new span for each note using text and id
+      `<li><span>${n.text}</span><button data-id="${n.id}">✕</button></li>`
+    ).join('');
+    $('#notes').querySelectorAll('button').forEach(btn => {//add event listener to each button
+      btn.addEventListener('click', async () => {
+        await fetch('/api/notes/' + btn.dataset.id, { method: 'DELETE', headers: hdr() });
+        loadNotes();
+      });
+    });
+  }
   
