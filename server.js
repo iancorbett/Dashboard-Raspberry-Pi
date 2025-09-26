@@ -56,6 +56,13 @@ app.get('/api/weather', async (req, res) => {
     res.json({ notes: listNotes() });
   });
 
+  app.post('/api/notes', requirePin, (req, res) => {
+    const { text } = req.body || {};
+    if (!text || !String(text).trim()) return res.status(400).json({ error: 'text_required' }); //if empty
+    const note = addNote(String(text).trim()); //force type to be a string
+    res.json({ ok: true, note });
+  });
+
 const __filename = fileURLToPath(import.meta.url); // full path to current file
 const __dirname  = path.dirname(__filename); // folder path (no filename)
 app.use(express.static(path.join(__dirname, 'public'))); //joins the current folder (__dirname) with public/
