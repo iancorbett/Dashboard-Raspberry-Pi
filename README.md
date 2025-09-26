@@ -10,3 +10,14 @@ Runs on a Raspberry Pi (or any machine with Node installed) and displays:
 -  Notes (stored in `data/notes.json`, protected by optional PIN)
 
 ---
+
+##  Features
+
+- **Local Network Access** → view dashboard from your phone/laptop if on the same Wi-Fi
+- **Weather Units** → defaults to °F + mph for US, easily switchable to °C + km/h
+- **Notes** → add/delete notes, persisted to disk
+- **PIN Protection** → secure your notes API with `DASH_PIN` env variable
+- **Portable** → works on Raspberry Pi, Mac, Linux, or Windows
+- **DevOps Demo** → shows off environment variables, API integration, file storage, and Express routing
+
+---
