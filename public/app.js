@@ -59,4 +59,6 @@ function tickClock() {
     $('#system').textContent = JSON.stringify(s, null, 2);//dynamically change text content
   }
   loadSystem();
+
+  pinInput.addEventListener('change', () => { PIN = pinInput.value.trim(); loadNotes(); }); 
   
