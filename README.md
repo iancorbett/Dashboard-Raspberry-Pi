@@ -41,3 +41,24 @@ Set up environment variables in a .env file:
 - DASH_PIN=1234   # optional, leave blank to disable
 - LAT=37.3382     # default latitude (San Jose)
 - LON=-121.8863   # default longitude
+
+---
+
+## Run the Server
+
+- npm start
+
+
+Then open:
+
+http://localhost:3000
+
+
+On another device (same Wi-Fi):
+
+http://<your-pi-ip>:3000
+
+
+Find your Pi’s IP with:
+
+hostname -I
