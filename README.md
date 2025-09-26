@@ -21,3 +21,11 @@ Runs on a Raspberry Pi (or any machine with Node installed) and displays:
 - **DevOps Demo** → shows off environment variables, API integration, file storage, and Express routing
 
 ---
+
+##  Installation
+
+Clone the repo and install dependencies:
+
+- git clone https://github.com/yourusername/home-dashboard.git
+- cd home-dashboard
+- npm install
