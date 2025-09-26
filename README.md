@@ -29,3 +29,15 @@ Clone the repo and install dependencies:
 - git clone https://github.com/yourusername/home-dashboard.git
 - cd home-dashboard
 - npm install
+
+---
+
+## Configuration
+
+Set up environment variables in a .env file:
+
+- PORT=3000
+- GIT_SHA=dev
+- DASH_PIN=1234   # optional, leave blank to disable
+- LAT=37.3382     # default latitude (San Jose)
+- LON=-121.8863   # default longitude
